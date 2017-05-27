@@ -34,7 +34,8 @@ public class EvilInstrumentation extends Instrumentation {
 
 
         // 开始调用原始的方法, 调不调用随你,但是不调用的话, 所有的startActivity都失效了.
-        // 由于这个方法是隐藏的,因此需要使用反射调用;首先找到这个方法
+        // 由于这个方法是隐藏的,因此需要使用反射调用
+        // 首先找到这个方法
         try {
             Method execStartActivityMethod = Instrumentation.class.getDeclaredMethod("execStartActivity",
                     Context.class, IBinder.class, IBinder.class, Activity.class, Intent.class, int.class,Bundle.class);
